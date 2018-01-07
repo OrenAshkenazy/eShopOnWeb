@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('Init WS') {
+            steps{
+                script{
+                   step([$class : 'GitHubPRStatusBuilder', statusMessage: [content: "Run #${env.BUILD_NUMBER} started"]])
+                  }
+            }
+        }
+
         stage('restore') {
             steps {
                bat 'dotnet restore'

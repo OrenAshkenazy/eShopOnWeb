@@ -16,7 +16,7 @@ pipeline {
             steps{
                 script{
                    step([$class : 'GitHubPRStatusBuilder', statusMessage: [content: "Run #${env.BUILD_NUMBER} started"]])
-                   setGitHubPullRequestStatus context: '', message: '', state: 'PENDING'
+                 //  setGitHubPullRequestStatus context: '', message: '', state: 'PENDING'
                     
                   }
             }

@@ -1,3 +1,13 @@
+def loadProperties() {
+    node {
+        checkout scm
+        properties = new Properties()
+        File propertiesFile = new File("${workspace}/pipeline.properties")
+        properties.load(propertiesFile.newDataInputStream())
+        echo "Immediate one ${properties.repo}"
+    }
+}
+
 pipeline {
     agent any
 
@@ -7,6 +17,7 @@ pipeline {
                 script{
                    step([$class : 'GitHubPRStatusBuilder', statusMessage: [content: "Run #${env.BUILD_NUMBER} started"]])
                    setGitHubPullRequestStatus context: '', message: '', state: 'PENDING'
+                    
                   }
             }
         }

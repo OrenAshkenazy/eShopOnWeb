@@ -16,7 +16,8 @@ pipeline {
                     echo "Version: ${Var1}"
                     def address = prop['address']
                     def values = address.split(';')
-                        for (i = 0, i < values.length, i++){
+                        
+                        for (i = 0; i < values.size(); i++){
                                echo value[i];
                         }
                         

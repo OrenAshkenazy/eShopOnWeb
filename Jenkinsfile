@@ -14,8 +14,15 @@ pipeline {
                     def props = readProperties  file:"${workspace}/pipeline.properties"
                     def Var1= props['version']
                     echo "Version: ${Var1}"
-                    loadProperties()
-                    echo "Later one ${properties.version}"
+                    def address = prop['address']
+                    def values = address.split(';')
+                        for (i = 0, i < values.length, i++){
+                               echo value[i];
+                        }
+                        
+                        
+                  //  loadProperties()
+                  // echo "Later one ${properties.version}"
                    step([$class : 'GitHubPRStatusBuilder', statusMessage: [content: "Run #${env.BUILD_NUMBER} started"]])
                  //  setGitHubPullRequestStatus context: '', message: '', state: 'PENDING'
                     

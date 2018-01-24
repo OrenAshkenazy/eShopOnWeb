@@ -12,10 +12,10 @@ pipeline {
             steps{
                 script{
                     def props = readProperties  file:"${workspace}/pipeline.properties"
-                    def Var1= props['version']
+                    def Var1 = props['version']
                     echo "Version: ${Var1}"
-                    def address = props['address']
-                    def values = address.split(';')
+                    def Address = props['address']
+                    def values = Address.split(';')
                         
                         for (i = 0; i < values.size(); i++){
                                echo value[i];

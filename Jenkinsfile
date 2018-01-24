@@ -1,8 +1,7 @@
-def loadProperties() 
+def loadProperties() {
         properties = new Properties()
         File propertiesFile = new File("${workspace}/pipeline.properties")
         properties.load(propertiesFile.newDataInputStream())
-    }
 }
 
 pipeline {

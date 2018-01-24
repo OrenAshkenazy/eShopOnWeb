@@ -14,7 +14,7 @@ pipeline {
                     def props = readProperties  file:"${workspace}/pipeline.properties"
                     def Var1= props['version']
                     echo "Version: ${Var1}"
-                    def address = prop['address']
+                    def address = props['address']
                     def values = address.split(';')
                         
                         for (i = 0; i < values.size(); i++){

@@ -19,6 +19,7 @@ pipeline {
                         echo "Test: ${values}"
                          for(String item: values) {
                                  println "${item}"
+                         }
                         
                       //  for (i = 0; i < values.size(); i++){
                        //        echo value[i];

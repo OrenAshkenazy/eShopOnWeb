@@ -17,9 +17,9 @@ pipeline {
                     def Address = props['address']
                     def values = Address.split(';')
                         
-                        for (i = 0; i < values.size(); i++){
-                               echo value[i];
-                        }
+                      //  for (i = 0; i < values.size(); i++){
+                       //        echo value[i];
+                       // }
                         
                         
                   //  loadProperties()

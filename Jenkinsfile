@@ -1,9 +1,7 @@
-def loadProperties() {
-    node {
+def loadProperties() 
         properties = new Properties()
         File propertiesFile = new File("${workspace}/pipeline.properties")
         properties.load(propertiesFile.newDataInputStream())
-        echo "Immediate one ${properties.version}"
     }
 }
 
@@ -14,7 +12,10 @@ pipeline {
         stage('Init WS') {
             steps{
                 script{
-                      loadProperties()
+                    def props = readProperties  file:"${workspace}/pipeline.properties"
+                    def Var1= props['version']
+                    echo "Version: ${Var1}"
+                    loadProperties()
                     echo "Later one ${properties.version}"
                    step([$class : 'GitHubPRStatusBuilder', statusMessage: [content: "Run #${env.BUILD_NUMBER} started"]])
                  //  setGitHubPullRequestStatus context: '', message: '', state: 'PENDING'
